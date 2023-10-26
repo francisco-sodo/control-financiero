@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- toastify -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+  <!-- toastify -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  <script src="./js/main.js" defer></script>
+  <title>Control de Gastos</title>
+</head>
+
+<body>
+  <main>
+    
+      <h1>Anotación de Entradas y Salidas</h1>
+<div id="_mostrarObjeto"></div>
+      <section class="head">
+        <!-- INPUTS -->
+        
+        <div class="inputs-container">
+          <h2>Anotación:</h2>
+          
+          <form action="" class="formulario" id="_formulario">
+            <!-- TIPO -->
+            <div class="formulario-tipo">
+              <input type="radio" name="tipo" value="Ingreso" id="_ingreso">Ingreso
+              <input type="radio" name="tipo" value="Egreso" id="_egreso">Egreso
+            </div>
+             <!-- COMENTARIO / ITEM -->
+             <div class="formulario-item">
+              <input type="text" name="item" value="" id="_item" placeholder="Item / Comentario">
+            </div>
+            <!-- MONTO -->
+            <div class="formulario-monto">
+              <input min="1" type="number" name="monto" value="" id="_monto" placeholder="Ingrese un monto $">
+            </div>
+            <!-- CATEGORIA CON INPUT-->
+            <!-- <div class="formulario-categoria">
+              <input type="search" name="categoria" value="" id="_categoria" placeholder="Categoría">
+            </div> -->
+            <!-- CATEGORIA CON SELECT-->
+            <div class="formulario-categoria">
+              <!-- <label for="_categoria">-Seleccione una categoria-</label> -->
+              <select name="categoria" value="categoria" id="_categoria">
+                <option>Seleccione una categoria</option>
+              </select>
+            </div>
+            
+              <button class="btn-add-categoria" id="_btn-add-categoria">Agregar categoria 
+                <i class='bx bx-plus-circle'></i>
+              </button>
+            
+            <!-- AGREGAR NUEVA CATEGORI-->
+
+            <div class="input-search-wrapper toggle" id="_input-search-wrapper">
+                <input type="search" name="" value="" id="_input-nueva-categoria" class="input-nueva-categoria" placeholder="Ingrese una nueva categoría">
+               <button><i class='bx bxs-send'></i></button> 
+            </div>
+            
+            <!-- SUBMIT -->
+            <div class="formulario-submit">
+              <button type="submit" id="_submitBtn" class="submit-btn">ANOTAR</button>
+            </div>
+
+          </form>
+
+          <!-- <div class="error-msg" id="_errorMsg"></div> -->
+        </div>
+
+        <!-- RESMEN -->
+        
+        <div class="resume-container">
+          <h2>Resumen:</h2>
+          <br>
+          <div>
+            <h3>Ingresos:<span id="_ingresos"></span></h3>
+            <h3>Egresos:<span id="_egresos"></span></h3>
+            <h3>Saldo:<span id="_saldo"></span></h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- TABLA -->
+      <div class="table-container">
+        <table id="_tabla" class="tabla">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Tipo</th>
+              <th>Comentario / item</th>
+              <th>Monto</th>
+              <th>Categoria</th>
+              <th><i class='bx bx-trash'></i></th>
+
+            </tr>
+          </thead>
+          <tbody id="_tbody">
+           <tr id="_tbodyExampleChild"> 
+              <!-- <td>ejemplo</td>
+              <td>ejemplo</td>
+              <td>ejemplo</td>
+              <td>ejemplo</td>
+              <td>ejemplo</td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    
+  </main>
+
+
+</body>
+
+</html>
