@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/style.css"/>
   <!-- toastify -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
@@ -14,7 +15,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
   <script src="./js/main.js" defer></script>
-  <title>Control de Gastos</title>
+  <title>Control Financiero</title>
 </head>
 
 <body>
@@ -50,7 +51,8 @@
             <div class="formulario-categoria">
               <!-- <label for="_categoria">-Seleccione una categoria-</label> -->
               <select name="categoria" value="categoria" id="_categoria">
-                <option>Seleccione una categoria</option>
+                <option id="_titleOption" value="Seleccione una categoria">Seleccione una categoria</option>
+                <!-- <option></option> -->
               </select>
             </div>
             
@@ -62,7 +64,7 @@
 
             <div class="input-search-wrapper toggle" id="_input-search-wrapper">
                 <input type="search" name="" value="" id="_input-nueva-categoria" class="input-nueva-categoria" placeholder="Ingrese una nueva categoría">
-               <button><i class='bx bxs-send'></i></button> 
+               <!-- <button><i class='bx bxs-send'></i></button>  -->
             </div>
             
             <!-- SUBMIT -->

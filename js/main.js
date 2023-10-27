@@ -2,6 +2,7 @@
 
 //todo   dibujar tabla fantasia si esta vacia. luego eliminar con la primer fila ingresada.
 //todo   fetch 
+//todo corregir funcionalidad de agregar categoria.
 
 const formulario = document.getElementById("_formulario");
 const formSelect = document.getElementById("_categoria");
@@ -12,6 +13,7 @@ const addCategoriaBtn = document.getElementById("_btn-add-categoria");
 
 const contenedorNuevaCategoria = document.getElementById("_input-search-wrapper");
 const inputNuevaCategoria = document.getElementById("_input-nueva-categoria");
+const optionTitle = document.getElementById("_titleOption");
 
 const submitBtn = document.getElementById("_submitBtn");
 // const errorMsg = document.getElementById("_errorMsg");
@@ -55,16 +57,6 @@ class ANOTACION {
   formatearMoneda(valor) {
     return (valor / 100).toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 });
   }
-
-  // mostrarError(msg) {
-  //   const mensajeError = document.createElement("p");
-  //   mensajeError.textContent = msg;
-  //   mensajeError.classList.add("red");
-  //   errorMsg.appendChild(mensajeError);
-  //   setTimeout(() => {
-  //     mensajeError.remove();
-  //   }, 2000);
-  // }
 
   sweetAlertError1() {
   Swal.fire({
@@ -146,7 +138,6 @@ sweetAlertError2() {
   }
 
   agregarCategoria(){
-    //const getNuevasCategorias = JSON.parse(localStorage.getItem("nuevasCategoriasLS"));
       for(let cat of arrCategorias) {
       let addCategoriaHtml = `<option>${cat}</option>`
       formSelect.insertAdjacentHTML("beforeend", addCategoriaHtml)
@@ -178,7 +169,6 @@ sweetAlertError2() {
        
         formulario.reset();
       } else {
-        //anotar.mostrarError("Complete todos los campos");
         anotar.sweetAlertError1()
       }
     });
@@ -191,19 +181,11 @@ sweetAlertError2() {
   }
 
 eliminarDataLS(dataId){
-  //obtengo y parseo el movimiento en el ls
   const getMovimientosLS = JSON.parse(localStorage.getItem("movimientosLS")) || [];
-  //console.log(getMovimientosLS)
   MOVIMIENTOS = getMovimientosLS;
-
-//busco indice del movimiento que quiero eliminar
   let indexInArray = MOVIMIENTOS.findIndex(element => element.id == dataId);
-
-  //si no hay matcheo de ids me devuelve -1
   if (indexInArray !== -1) {
-  
   MOVIMIENTOS.splice(indexInArray, 1);
-
   anotar.guardarEnLS();
   }
 }
@@ -216,8 +198,7 @@ agregarNuevaCategoria(){
     contenedorNuevaCategoria.classList.toggle('toggle')
    
     let nuevaCategoriaIngresada = inputNuevaCategoria.value;
-
-
+ 
     if (nuevaCategoriaIngresada) {
       // Verificar si la categoría ya existe en el array
       if (!arrCategorias.includes(nuevaCategoriaIngresada)) {
@@ -233,8 +214,9 @@ agregarNuevaCategoria(){
     inputNuevaCategoria.value = '';
     formSelect.innerHTML = '';
     this.agregarCategoria();
-
+  
   })
+
 }
 
 
@@ -251,13 +233,12 @@ window.addEventListener('DOMContentLoaded', ()=>{
     MOVIMIENTOS = getMovimientosLS;
     anotar.dibujarTabla();
     anotar.dibujarResumen();
-    //anotar.agregarCategoria()
 
 
+    
     const getCategoriasLS = JSON.parse(localStorage.getItem("nuevasCategoriasLS")) || [];
     arrCategorias = getCategoriasLS;
-    anotar.agregarCategoria()
-    //anotar.agregarNuevaCategoria();
+    anotar.agregarCategoria();
     
     
     
@@ -265,21 +246,5 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
 anotar.nuevaAnotacion();
 anotar.agregarNuevaCategoria();
-
-
-
-// Toastify({
-//   text: "Eliminaste un anotacion",
-//   duration: 3000,
-//   position: "center", // `left`, `center` or `right`
-//   backgroundColor:'#ffdd43',
-//   color:'#000',
-//   style:{
-//   color:'#000'},
-  
-//   }).showToast();
-  
-
-
 
 
