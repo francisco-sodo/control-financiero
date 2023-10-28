@@ -23,6 +23,7 @@ h3{
     font-size: 1rem;
 }
 
+
 /* HEAD > INPUTS, RESUME -------------------------------- */
 .head{
     display: grid;
@@ -176,4 +177,33 @@ tbody{
 }
 .swalert{
     font-size: .8rem;
+}
+
+/* INFO DOLAR API --------------------------------------- */
+
+.info-dolar-api{
+    /* display: flex;
+    flex-direction: column;
+    justify-content:start; */
+    gap: 10px;
+    font-size: .8rem;
+    background-color: rgb(194, 194, 194);
+    padding: 10px;
+    
+}
+.info-dolar-api li{
+    list-style: none;
+}
+.moneda-titulo{
+    font-weight: 600;
+}
+.para-la-compra{
+    color: blueviolet;
+    font-weight: 600;
+
+}
+.para-la-venta{
+    color: rgb(24, 122, 0);
+    font-weight: 600;
+    font-size: .9rem;
 }

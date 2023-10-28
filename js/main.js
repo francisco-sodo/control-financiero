@@ -13,7 +13,7 @@ const addCategoriaBtn = document.getElementById("_btn-add-categoria");
 
 const contenedorNuevaCategoria = document.getElementById("_input-search-wrapper");
 const inputNuevaCategoria = document.getElementById("_input-nueva-categoria");
-const optionTitle = document.getElementById("_titleOption");
+
 
 const submitBtn = document.getElementById("_submitBtn");
 // const errorMsg = document.getElementById("_errorMsg");
@@ -23,17 +23,51 @@ const resumenSaldo = document.getElementById("_saldo");
 const tBody = document.getElementById("_tbody");
 
 let MOVIMIENTOS = [];
+//let arrCategorias = ['Hogar','Ocio/Recreacion','Alquiler','Supermercado','Trabajo','Otro']
+let arrCategorias = []
 
-let arrCategorias = [
-"Ocio y esparcimiento",
-"Gasto extraordinario",
-"Cuidado personal",
-"Para el Hogar",
-"Gasto Hormiga",
-"Supermercado",
-"Trabajo",
-"Regalo",
-"Otro"]
+
+//*FECHA DEL DIA EN CABECERA //
+function fechaCompleta(){
+  const showDataFecha = document.querySelector('#_showDataFecha')
+  let longDate = 
+  new Date().toLocaleDateString('es-AR', {day:"numeric", weekday:"long", month:"long", year:"numeric"})
+  // console.log(longDate)
+  showDataFecha.innerHTML = `${longDate}`
+  }
+  
+
+//* API COTIZACION DOLAR
+function dolarApi(){
+  const showDolar = document.querySelector('#_showDolar')
+  
+          fetch("https://dolarapi.com/v1/dolares")
+          .then(response => response.json())
+          .then((data)=>{
+            let oficial = data[0];
+            let blue = data[1];
+            console.log(data)
+            showDolar.innerHTML = `
+            
+              <li>
+              <p><span class="moneda-titulo">${oficial.moneda} ${oficial.nombre}</span>
+              <span class="para-la-compra">$${oficial.compra}</span>  para la compra /  
+              <span class="para-la-venta">$${oficial.venta}</span> para la venta.</p>
+              </li>
+              
+              <li>
+              <p><span class="moneda-titulo">${blue.moneda} ${blue.nombre}</span>
+              <span class="para-la-compra">$${blue.compra}</span>  para la compra /  
+              <span class="para-la-venta">$${blue.venta}</span> para la venta.</p>
+              </li>
+            
+            `
+            })
+        
+          .catch((err)=>{
+          console.log('Ha ocurrido un Error-- ' + err)
+            })
+          }
 
 
 
@@ -70,7 +104,7 @@ class ANOTACION {
     customClass: 'swalert'
   })
 }
-sweetAlertError2() {
+  sweetAlertError2() {
   Swal.fire({
     text: 'Esa categoria ya existe',
     timer: 2500,
@@ -82,6 +116,7 @@ sweetAlertError2() {
     customClass: 'swalert'
   })
 }
+
   
   dibujarResumen() {
    
@@ -137,12 +172,7 @@ sweetAlertError2() {
     });
   }
 
-  agregarCategoria(){
-      for(let cat of arrCategorias) {
-      let addCategoriaHtml = `<option>${cat}</option>`
-      formSelect.insertAdjacentHTML("beforeend", addCategoriaHtml)
-    }
-  }
+  
 
   generarId(){
     let ultimoId = localStorage.getItem("ultimoId") || '-1';
@@ -191,30 +221,43 @@ eliminarDataLS(dataId){
 }
 
 
+
+dibujarCategoria(){
+  
+  for(let cat of arrCategorias) {
+  let addCategoriaHtml = `<option selected>${cat}</option>`
+  formSelect.insertAdjacentHTML("beforeend", addCategoriaHtml)
+ 
+}}
+
+
 agregarNuevaCategoria(){
+  // let arrCategorias = ['Hogar','Ocio/Recreacion','Alquiler','Supermercado','Trabajo','Otro']
+
   addCategoriaBtn.addEventListener('click',(e)=>{
   e.preventDefault()
   
     contenedorNuevaCategoria.classList.toggle('toggle')
-   
+    
     let nuevaCategoriaIngresada = inputNuevaCategoria.value;
  
     if (nuevaCategoriaIngresada) {
       // Verificar si la categoría ya existe en el array
-      if (!arrCategorias.includes(nuevaCategoriaIngresada)) {
+      if (!arrCategorias.includes(nuevaCategoriaIngresada) ) {
         arrCategorias.push(nuevaCategoriaIngresada);
-        this.agregarCategoria();
-
+        this.dibujarCategoria();
+      
         localStorage.setItem("nuevasCategoriasLS", JSON.stringify(arrCategorias))
+
       } else{
         this.sweetAlertError2()
       }
-
+      inputNuevaCategoria.value = '';//reset input
     }
-    inputNuevaCategoria.value = '';
+    
     formSelect.innerHTML = '';
-    this.agregarCategoria();
-  
+    this.dibujarCategoria();
+   
   })
 
 }
@@ -238,13 +281,22 @@ window.addEventListener('DOMContentLoaded', ()=>{
     
     const getCategoriasLS = JSON.parse(localStorage.getItem("nuevasCategoriasLS")) || [];
     arrCategorias = getCategoriasLS;
-    anotar.agregarCategoria();
+    anotar.dibujarCategoria();
     
+    fechaCompleta();
+    dolarApi();
     
     
 });
 
+
 anotar.nuevaAnotacion();
 anotar.agregarNuevaCategoria();
+
+
+
+
+
+
 
 
