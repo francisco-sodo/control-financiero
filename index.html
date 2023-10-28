@@ -29,26 +29,32 @@
 
   <body>
     <main>
-      <section class="info-api">
-        <div id="_showDataFecha"></div>
-        
-          <div class="info-dolar-api" id="_showDolar">
-
-          </div>
-        
-      </section>
-
+         <!-- INFO API -->
+         <section class="info-api">
+          <div class="info-fecha-completa" id="_showDataFecha"></div>
+          
+            <div class="info-dolar-api" id="_showDolar">
+  
+            </div>
+          
+        </section>
       <h1>Anotación de Entradas y Salidas</h1>
-      <div id="_mostrarObjeto"></div>
+    
+
+     
+      <!-- <div id="_mostrarObjeto"></div> -->
+      <!-- HEAD -->
       <section class="head">
         <!-- INPUTS -->
-
         <div class="inputs-container">
           <h2>Anotación:</h2>
 
           <form action="" class="formulario" id="_formulario">
+
+            <section class="primera-fila">
             <!-- TIPO -->
             <div class="formulario-tipo">
+              <label for="_ingreso">Tipo:</label>
               <input
                 type="radio"
                 name="tipo"
@@ -62,6 +68,10 @@
                 id="_egreso"
               />Egreso
             </div>
+            </section>
+
+            <section class="segunda-fila">
+
             <!-- COMENTARIO / ITEM -->
             <div class="formulario-item">
               <input
@@ -80,44 +90,39 @@
                 name="monto"
                 value=""
                 id="_monto"
-                placeholder="Ingrese un monto $"
+                placeholder="monto $"
               />
             </div>
-            <!-- CATEGORIA CON INPUT-->
-            <!-- <div class="formulario-categoria">
-              <input type="search" name="categoria" value="" id="_categoria" placeholder="Categoría">
-            </div> -->
+            
+           
+          </section>
+
+           
+
+          
+          <section class="tercera-fila">
+
+
             <!-- CATEGORIA CON SELECT-->
             <div class="formulario-categoria">
-              <!-- <label for="_categoria">-Seleccione una categoria-</label> -->
               <select
-                name="categoria"
-                value="categoria"
-                id="_categoria"
-                class="categoria"
-              >
-                <option>Seleccione una categoria</option>
+                name="categoria" value="categoria" id="_categoria" class="categoria">
+                <option>-categoria-</option>
               </select>
+              
+                <!-- BOTON AGREGAR NUEVA CATEGORI-->
+              <button class="btn-add-categoria"id="_btn-add-categoria">
+                <i class="bx bx-plus-circle"></i></button>
+                <!-- AGREGAR NUEVA CATEGORI-->
+              <div class="input-search-wrapper toggle" id="_input-search-wrapper">
+                <input type="search" name="" value="" id="_input-nueva-categoria" class="input-nueva-categoria" placeholder="Ingrese una nueva categoría"/>
+              </div>
+
             </div>
 
-            <button class="btn-add-categoria" id="_btn-add-categoria">
-              Agregar categoria
-              <i class="bx bx-plus-circle"></i>
-            </button>
+          </section>
 
-            <!-- AGREGAR NUEVA CATEGORI-->
-
-            <div class="input-search-wrapper toggle" id="_input-search-wrapper">
-              <input
-                type="search"
-                name=""
-                value=""
-                id="_input-nueva-categoria"
-                class="input-nueva-categoria"
-                placeholder="Ingrese una nueva categoría"
-              />
-              <!-- <button><i class='bx bxs-send'></i></button>  -->
-            </div>
+          <section class="cuarta-fila">
 
             <!-- SUBMIT -->
             <div class="formulario-submit">
@@ -125,22 +130,26 @@
                 ANOTAR
               </button>
             </div>
+
+          </section>
+          
+
+
           </form>
 
           <!-- <div class="error-msg" id="_errorMsg"></div> -->
         </div>
 
         <!-- RESMEN -->
-
         <div class="resume-container">
           <h2>Resumen:</h2>
-          <br />
-          <div>
-            <h3>Ingresos:<span id="_ingresos"></span></h3>
-            <h3>Egresos:<span id="_egresos"></span></h3>
-            <h3>Saldo:<span id="_saldo"></span></h3>
+          <div class="resume-items">
+            <h3 class="ingresos-item">Ingresos:<span id="_ingresos"></span></h3>
+            <h3 class="egresos-item">Egresos:<span id="_egresos"></span></h3>
+            <h3 class="saldo-item">Saldo:<span id="_saldo"></span></h3>
           </div>
         </div>
+
       </section>
 
       <!-- TABLA -->

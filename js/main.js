@@ -14,7 +14,6 @@ const addCategoriaBtn = document.getElementById("_btn-add-categoria");
 const contenedorNuevaCategoria = document.getElementById("_input-search-wrapper");
 const inputNuevaCategoria = document.getElementById("_input-nueva-categoria");
 
-
 const submitBtn = document.getElementById("_submitBtn");
 // const errorMsg = document.getElementById("_errorMsg");
 const resumenIngresos = document.getElementById("_ingresos");
@@ -46,7 +45,7 @@ function dolarApi(){
           .then((data)=>{
             let oficial = data[0];
             let blue = data[1];
-            console.log(data)
+            // console.log(data)
             showDolar.innerHTML = `
             
               <li>
@@ -129,7 +128,7 @@ class ANOTACION {
     resumenEgresos.textContent = this.formatearMoneda(dibujarEgreso);
     resumenEgresos.classList.add('red');
     resumenSaldo.textContent = this.formatearMoneda(dibujarSaldo);
-    resumenSaldo.style.color = 'blue';
+    // resumenSaldo.classList.add('l-blue');
   }
 
   
@@ -223,11 +222,9 @@ eliminarDataLS(dataId){
 
 
 dibujarCategoria(){
-  
   for(let cat of arrCategorias) {
   let addCategoriaHtml = `<option selected>${cat}</option>`
-  formSelect.insertAdjacentHTML("beforeend", addCategoriaHtml)
- 
+  formSelect.insertAdjacentHTML("beforeend", addCategoriaHtml);
 }}
 
 
@@ -239,7 +236,7 @@ agregarNuevaCategoria(){
   
     contenedorNuevaCategoria.classList.toggle('toggle')
     
-    let nuevaCategoriaIngresada = inputNuevaCategoria.value;
+    let nuevaCategoriaIngresada = inputNuevaCategoria.value.toLowerCase();
  
     if (nuevaCategoriaIngresada) {
       // Verificar si la categoría ya existe en el array

@@ -6,18 +6,20 @@ body{
     font-family: sans-serif;
 }
 main{
+    width: 100%;
+    max-width:640px;
     padding: 50px;
-    max-width: 500px;
     background-color: rgb(255, 255, 255);
     margin: 0 auto;
     margin-top: 50px;
     border-radius: 5px;
 }
 h1{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 h2{
     font-size: 1.2rem;
+    font-weight: 400;
 }
 h3{
     font-size: 1rem;
@@ -26,47 +28,72 @@ h3{
 
 /* HEAD > INPUTS, RESUME -------------------------------- */
 .head{
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    padding: 10px;
-    border: 1px solid rgb(22, 22, 22);
+    /* width: fit-content; */
+   /* width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+   
+    /* flex-direction: column; */
+    /* padding: 10px;
+    border: 1px solid rgb(22, 22, 22); */
+    /* overflow: hidden; */
+
 }
 
 /* INPUTS ---------------------------------------------- */
 .inputs-container{
-    grid-column: 1/1;
-    width: 100%;
-    border-right:1px solid rgb(22, 22, 22);
-    padding-right: 15px;
+    width: auto;
+    /* display: flex;
+    flex-direction: column; */
+   
 }
-.inputs-container h2{
-    color: rgb(27, 27, 27);
-}
+
 .formulario{
-    width: 100%;
+    width: auto;
     display: flex;
+    /* justify-content: start;
+    align-self: start; */
     flex-direction: column;
     gap: 5px;
-    margin: 20px 0;
+    /* margin: 20px 0; */
 }
 .formulario div input{
     padding: 5px; 
+    border: 1px solid #1290ff;
+   
+    
 }
-
+.formulario-tipo{
+    font-size: .8rem;
+   
+}
+.segunda-fila{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.formulario-item input{
+    width: 130px;
+    }
+.formulario-monto input{
+    width: 80px;
+}
+.tercera-fila{
+    display: flex;
+    flex-wrap: wrap;
+}
 .formulario-categoria{
     display: flex;
-    flex-direction: column;
-}
-.formulario-categoria label{
-   font-size: .8rem;
-   padding: 5px 0;
-}
+    flex-wrap: wrap;
+ }
 .formulario-categoria select{
-    background-color: rgb(243, 243, 243);
-    padding: 5px;
-    border: 1px solid rgb(127, 127, 127);
-    border-radius: 2px;
-}
+    width: 140px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #1290ff;
+ }
+
 .btn-add-categoria{
     border: none;
     text-align: left;
@@ -79,56 +106,67 @@ h3{
     width: fit-content;
 }
 .btn-add-categoria i{
-    font-size: 1.4em;
+    font-size: 1.5em;
+    color: green;
 }
 .btn-add-categoria:hover i{
     color: blueviolet;
 }
-
-.input-search-wrapper{
-    display: flex;;
-}
-
-.input-nueva-categoria{
-    width: 100%;
-}
-.input-search-wrapper > button{
-    border: 1px solid rgb(127, 127, 127);
-    width: 30px;
-}
-
 .toggle{
     display: none;
 }
 
+ .input-search-wrapper input{
+    width: auto;
 
+}
+.cuarta-fila{
+    margin: 10px 0 25px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .submit-btn{
     padding: 12px 16px;
     text-transform: uppercase;
-    background-color: rgb(14, 14, 14);
+    background-color: #1290ff;
     color: beige;
     border: none;
     border-radius: 3px;
     cursor: pointer;
 }
 .submit-btn:hover{
-    background-color: rgb(72, 71, 71);
+    background-color: #0257a1;
 }
 
 /* RESUME ---------------------------------------------- */
 .resume-container{
-    grid-column: 2/3;
-    width: 100%;
-    margin-left: 30px;
+    width: auto;
+    
+    
 }
-.resume-container h2{
-    color: rgb(27, 27, 27);
+.resume-items h3{
+    padding: 5px;
+    font-weight: 300;
 }
+.resume-items h3 span{
+    padding: 5px;
+    font-weight: 600;
+}
+
+.saldo-item span{
+    font-size: 1.4rem;
+   
+}
+
+
+
 
 /* TABLA ---------------------------------------------- */
 .table-container{
-    width: 500px;
+    width: auto;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 .tabla{
     width: 100%;
@@ -160,12 +198,16 @@ tbody{
 /* CLASSLIST ADD --------------------------------------- */
 .red{
     /* background-color: rgb(254, 214, 214); */
-    color: red;
+    color: rgb(255, 51, 51);
     /* color: #ffb114; */
 }
 .green{
     /* background-color: rgb(232, 255, 206); */
-    color: green;
+    color: rgb(24, 122, 0);
+}
+.l-blue{
+    /* background-color: rgb(232, 255, 206); */
+    color: #1290ff;
 }
 .delete-cell{
     width: 100%;
@@ -178,17 +220,21 @@ tbody{
 .swalert{
     font-size: .8rem;
 }
+.hide{
+    visibility: hidden;
+}
 
 /* INFO DOLAR API --------------------------------------- */
 
+.info-fecha-completa{
+   margin-bottom: 10px ;
+}
 .info-dolar-api{
-    /* display: flex;
-    flex-direction: column;
-    justify-content:start; */
     gap: 10px;
     font-size: .8rem;
-    background-color: rgb(194, 194, 194);
+    background-color: rgb(235, 235, 235);
     padding: 10px;
+    margin-bottom: 25px;
     
 }
 .info-dolar-api li{
