@@ -87,44 +87,55 @@ h3{
 .formulario-monto input{
     width: 80px;
 }
-.tercera-fila{
-    display: flex;
-    flex-wrap: wrap;
-}
 .formulario-categoria{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
  }
 .formulario-categoria select{
-    width: 140px;
+    width: 142px;
+    height: 30px;
     background-color: var(--main-color-bg);
     border: 1px solid var(--body-color-bg-dark);
  }
-
 .btn-add-categoria{
-    border: none;
-    text-align: left;
+    border-style: none;
+    position: relative;
     background-color: transparent;
-    margin: 5px 0;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    width: fit-content;
-}
-.btn-add-categoria i{
     font-size: 1.5em;
     color: var(--green);
 }
-.btn-add-categoria:hover i{
+.btn-add-categoria:hover{
     color: var(--violet);
 }
 .toggle{
     display: none;
 }
+.btn-add-categoria .add-cat-toolbox{
+    width: 150px;
+    visibility: hidden;
+    background-color: var(--violet);
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    left: 20%;
+    color: var(--main-color-bg);
+    padding: 10px;
+    font-size: .8rem;
+    font-weight: 300;
+    z-index: 10;
+    
+}
+.btn-add-categoria:hover .add-cat-toolbox{
+    visibility: visible;
+}
+
 
  .input-search-wrapper input{
     width: auto;
+    margin-left: 5px;
+    
 
 }
 .cuarta-fila{
@@ -141,10 +152,13 @@ h3{
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    
 }
 .submit-btn:hover{
     background-color: var(--dark-blue);
 }
+
+
 
 /* RESUME ---------------------------------------------- */
 .resume-container{
@@ -192,6 +206,11 @@ thead{
     font-weight: 300;
     font-size: .8rem;
 }
+.tbodyExample{
+    background-color: var(--body-color-bg);
+    color: rgb(130, 130, 130);
+    font-style: oblique;
+}
 
 
 /* CLASSLIST ADD --------------------------------------- */
@@ -219,6 +238,26 @@ thead{
 .hide{
     visibility: hidden;
 }
+
+.color-transition i{
+    /* color: var(--blue);
+    font-size: 1.6rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 1s infinite alternate send;
+    border-radius: 100%;
+}
+@keyframes send {
+    from {
+      color: var(--main-color-bg);
+      background-color: var(--blue);
+    }
+    to {
+        color: var(--blue);
+    }
+  }
+  
 
 /* INFO DOLAR API --------------------------------------- */
 

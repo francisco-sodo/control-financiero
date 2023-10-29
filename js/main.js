@@ -134,7 +134,20 @@ class ANOTACION {
   
 
   dibujarTabla() {
-    tBody.innerHTML = "";
+    if(MOVIMIENTOS.length == []){
+    tBody.innerHTML = `
+    <tr id="_tbodyExample" class="tbodyExample">
+      <td>${this.fecha}</td>
+      <td>Ej: Egreso</td>
+      <td>Ej: Pasajes</td>
+      <td>Ej: 30000</td>
+      <td>Ej: Vacaciones</td>
+      <td></td>
+    </tr>
+    `;}else{
+
+
+  tBody.innerHTML = "";
     MOVIMIENTOS.forEach((movimiento) => {
       let nuevaFila = tBody.insertRow(0);
       nuevaFila.setAttribute("id", movimiento.id)
@@ -164,11 +177,15 @@ class ANOTACION {
       btnBorrarFila.addEventListener('click', (e) =>{
         let filaSeleccionada = e.target.parentNode.parentNode;
         let idFila = filaSeleccionada.getAttribute("id")
-        
         filaSeleccionada.remove()
         anotar.eliminarDataLS(idFila)
       })
     });
+  }
+
+
+
+    
   }
 
   
@@ -235,17 +252,18 @@ agregarNuevaCategoria(){
   e.preventDefault()
   
     contenedorNuevaCategoria.classList.toggle('toggle')
+    contenedorNuevaCategoria.addEventListener('click', ()=>{
+      addCategoriaBtn.classList.add('color-transition');
+    } )
+    addCategoriaBtn.classList.remove('color-transition');
     
     let nuevaCategoriaIngresada = inputNuevaCategoria.value.toLowerCase();
  
     if (nuevaCategoriaIngresada) {
-      // Verificar si la categoría ya existe en el array
       if (!arrCategorias.includes(nuevaCategoriaIngresada) ) {
         arrCategorias.push(nuevaCategoriaIngresada);
         this.dibujarCategoria();
-      
         localStorage.setItem("nuevasCategoriasLS", JSON.stringify(arrCategorias))
-
       } else{
         this.sweetAlertError2()
       }
