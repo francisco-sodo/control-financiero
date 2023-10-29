@@ -8,14 +8,14 @@ const formulario = document.getElementById("_formulario");
 const formSelect = document.getElementById("_categoria");
 
 
-//const formularioCategoria = document.querySelector(".formulario-categoria");
+
 const addCategoriaBtn = document.getElementById("_btn-add-categoria");
 
 const contenedorNuevaCategoria = document.getElementById("_input-search-wrapper");
 const inputNuevaCategoria = document.getElementById("_input-nueva-categoria");
 
 const submitBtn = document.getElementById("_submitBtn");
-// const errorMsg = document.getElementById("_errorMsg");
+
 const resumenIngresos = document.getElementById("_ingresos");
 const resumenEgresos = document.getElementById("_egresos");
 const resumenSaldo = document.getElementById("_saldo");
