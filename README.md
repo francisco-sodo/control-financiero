@@ -17,7 +17,7 @@
 
 - Podés contactarte conmigo en **fanky1986@gmail.com**
 
-- La cantidad de horas silla en mi cuerpo es gracias a [Adrián González](Adrián González)
+- La cantidad de horas silla en mi cuerpo es gracias al Profesor Adrián González [https://github.com/Adrgon](https://github.com/Adrgon).
 
 Saludos! y gracias por pasar!
 
