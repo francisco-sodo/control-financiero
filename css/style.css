@@ -1,291 +1,352 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap");
 
 :root {
-    --main-color-bg: #f5f5f5;
-    --body-color-bg: #dbdbdb;
-    --blue: #1290ff;
-    --dark-blue: #0257a1;
-    --green: #3d9900;
-    --red: #ff5c33;
-    --violet:#8a2be2;
+  --main-positive: #f5f5f5;
+  --main-negative: #000;
+  --secundary-positive: #dbdbdb;
+  --secundary-negative: #424242;
 
-    --main-color-bg-dark: #000;
-    --body-color-bg-dark: #424242;
-  }
-  
+  --positive-fontcolor: #101010;
+  --negative-fontcolor: #efefef;
 
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color:var(--body-color-bg);
-    font-family: 'Roboto', sans-serif;
-}
-main{
-    width: 100%;
-    max-width:640px;
-    padding: 50px;
-    background-color:var(--main-color-bg);
-    margin: 0 auto;
-    margin-top: 50px;
-    border-radius: 5px;
-}
-h1{
-    font-size: 1.3rem;
-    font-weight: 500;
-}
-h2{
-    font-size: 1.2rem;
-    font-weight: 400;
-}
-h3{
-    font-size: 1rem;
-   
+  --main-btn: #1290ff;
+  --secundary-btn: #0257a1;
+
+  --green: #3d9900;
+  --red: #ff5c33;
+  --violet: #8a2be2;
 }
 
+.dark-mode {
+  --main-positive: #343434;
+  --main-negative: #f5f5f5;
+  --secundary-positive: #141414;
+  --secundary-negative: #dbdbdb;
+
+  --positive-fontcolor: #efefef;
+  --negative-fontcolor: #101010;
+
+  --main-btn: #0257a1;
+  --secundary-btn: #1290ff;
+
+  --violet: #b166f7;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--secundary-positive);
+  font-family: "Roboto", sans-serif;
+  color: var(--positive-fontcolor);
+}
+main {
+  width: 100%;
+  max-width: 640px;
+  padding: 50px;
+  background-color: var(--main-positive);
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+h1 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1rem;
+}
 
 /* HEAD > INPUTS, RESUME -------------------------------- */
-.head{
-    /* width: fit-content; */
-   /* width: 100%; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
+.head {
+  /* width: fit-content; */
+  /* width: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 /* INPUTS ---------------------------------------------- */
-.inputs-container{
-    width: auto;
+.inputs-container {
+  width: auto;
 }
 
-.formulario{
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.formulario {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-.formulario div input{
-    padding: 5px; 
-    border: 1px solid var(--body-color-bg-dark);
-    background-color: var(--main-color-bg);
-   
-    
+.formulario div input {
+  padding: 5px;
+  border: 1px solid var(--secundary-negative);
+  background-color: var(--main-positive);
+  color: var(--positive-fontcolor);
 }
-.formulario-tipo{
-    font-size: .8rem;
-   
+.formulario-tipo {
+  font-size: 0.8rem;
 }
-.segunda-fila{
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
+.segunda-fila {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
 }
-.formulario-item input{
-    width: 130px;
-    }
-.formulario-monto input{
-    width: 80px;
+.formulario-item input {
+  width: 130px;
 }
-.formulario-categoria{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
- }
-.formulario-categoria select{
-    width: 142px;
-    height: 30px;
-    background-color: var(--main-color-bg);
-    border: 1px solid var(--body-color-bg-dark);
- }
-.btn-add-categoria{
-    border-style: none;
-    position: relative;
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 1.5em;
-    color: var(--green);
+.formulario-monto input {
+  width: 80px;
 }
-.btn-add-categoria:hover{
-    color: var(--violet);
+.formulario-categoria {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
-.toggle{
-    display: none;
+.formulario-categoria select {
+  width: 142px;
+  height: 30px;
+  background-color: var(--main-positive);
+  border: 1px solid var(--secundary-negative);
+  color: var(--positive-fontcolor);
 }
-.btn-add-categoria .add-cat-toolbox{
-    width: 150px;
-    visibility: hidden;
-    background-color: var(--violet);
-    border-radius: 5px;
-    position: absolute;
-    top: 100%;
-    left: 20%;
-    color: var(--main-color-bg);
-    padding: 10px;
-    font-size: .8rem;
-    font-weight: 300;
-    z-index: 10;
-    
+.btn-add-categoria {
+  border-style: none;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: var(--green);
 }
-.btn-add-categoria:hover .add-cat-toolbox{
-    visibility: visible;
+.btn-add-categoria:hover {
+  color: var(--violet);
+}
+.toggle {
+  display: none;
+}
+.btn-add-categoria .add-cat-toolbox {
+  width: 150px;
+  visibility: hidden;
+  background-color: var(--violet);
+  border-radius: 5px;
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  color: var(--main-positive);
+  padding: 10px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  z-index: 10;
+}
+.btn-add-categoria:hover .add-cat-toolbox {
+  visibility: visible;
 }
 
-
- .input-search-wrapper input{
-    width: auto;
-    margin-left: 5px;
-    
-
+.input-search-wrapper input {
+  width: auto;
+  margin-left: 5px;
 }
-.cuarta-fila{
-    margin: 10px 0 25px 0;
-    display: flex;
-    flex-wrap: wrap;
+.cuarta-fila {
+  margin: 10px 0 25px 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.submit-btn{
-    padding: 12px 16px;
-    text-transform: uppercase;
-    background-color: var(--blue);
-    color: var(--main-color-bg);
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    
+.submit-btn {
+  padding: 12px 16px;
+  text-transform: uppercase;
+  background-color: var(--main-btn);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
-.submit-btn:hover{
-    background-color: var(--dark-blue);
-}
-
-
-
-/* RESUME ---------------------------------------------- */
-.resume-container{
-    width: auto;  
-}
-.resume-items h3{
-    padding: 5px;
-    font-weight: 300;
-}
-.resume-items h3 span{
-    padding-left: 5px;
-    font-weight: 400;
+.submit-btn:hover {
+  background-color: var(--secundary-btn);
 }
 
-.saldo-item span{
-    font-size: 1.4rem;
-}
-
-
-
-/* TABLA ---------------------------------------------- */
-.table-container{
-    width: auto;
-    overflow-x: auto;
-    overflow-y: auto;
-}
-.tabla{
-    width: 100%;
-    border-collapse: collapse;
-}
-.tabla, th, td{
-    border: 1px solid var(--main-color-bg-dark);
-    padding: 5px; 
-}
-tr > th{
-    font-weight: 400;
-    font-size: .9rem;
-    color: var(--main-color-bg);
-}
-thead{
-    background-color: var(--body-color-bg-dark);
-}
-.tbody{
-    background-color: var(--main-color-bg);
-    font-weight: 300;
-    font-size: .8rem;
-}
-.tbodyExample{
-    background-color: var(--body-color-bg);
-    color: rgb(130, 130, 130);
-    font-style: oblique;
-}
-
-
-/* CLASSLIST ADD --------------------------------------- */
-.red{
-    /* background-color: rgb(254, 214, 214); */
-    color: var(--red);
-    /* color: #ffb114; */
-}
-.green{
-    /* background-color: rgb(232, 255, 206); */
-    color: var(--green);
-}
-
-.delete-cell{
-    width: 100%;
-    background-color: transparent;
-    text-align: center;
-    font-size: .7rem;
-    border: none;
-    cursor: pointer;
-}
-.swalert{
-    font-size: .8rem;
-}
-.hide{
-    visibility: hidden;
-}
-
-.color-transition i{
-    /* color: var(--blue);
-    font-size: 1.6rem; */
+.color-transition i {
     display: flex;
     justify-content: center;
     align-items: center;
     animation: 1s infinite alternate send;
     border-radius: 100%;
-}
-@keyframes send {
+  }
+  @keyframes send {
     from {
-      color: var(--main-color-bg);
-      background-color: var(--blue);
+      color: var(--main-positive);
+      background-color: var(--main-btn);
     }
     to {
-        color: var(--blue);
+      color: var(--main-btn);
     }
   }
-  
+
+/* RESUME ---------------------------------------------- */
+.resume-container {
+  width: auto;
+}
+.resume-items h3 {
+  padding: 5px;
+  font-weight: 300;
+}
+.resume-items h3 span {
+  padding-left: 5px;
+  font-weight: 400;
+}
+
+.saldo-item span {
+  font-size: 1.4rem;
+}
+
+/* TABLA ---------------------------------------------- */
+.table-container {
+  width: auto;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tabla,
+th,
+td {
+  border: 1px solid var(--secundary-negative);
+  padding: 5px;
+}
+tr > th {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--main-positive);
+}
+thead {
+  background-color: var(--secundary-negative);
+}
+.tbody {
+  background-color: var(--main-positive);
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+.tbodyExample {
+  background-color: var(--secundary-positive);
+  color: rgb(130, 130, 130);
+  font-style: oblique;
+}
+.delete-cell {
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    font-size: 0.7rem;
+    border: none;
+    cursor: pointer;
+  }
+
+/* CLASSLIST ADD --------------------------------------- */
+.red {
+  /* background-color: rgb(254, 214, 214); */
+  color: var(--red);
+  /* color: #ffb114; */
+}
+.green {
+  /* background-color: rgb(232, 255, 206); */
+  color: var(--green);
+}
+.hide {
+    visibility: hidden;
+  }
+
+/* SWEET ALERT --------------------------------------- */
+.swalert {
+  font-size: 0.8rem;
+}
 
 /* INFO DOLAR API --------------------------------------- */
-
-.info-fecha-completa{
-   margin-bottom: 10px;
-   font-weight: 100;
+.info-fecha-completa {
+  margin-bottom: 10px;
+  font-weight: 100;
 }
-.info-dolar-api{
-    gap: 10px;
-    font-size: .8rem;
-    border-bottom: 1px solid var(--main-color-bg-dark);
+.info-dolar-api {
+  gap: 10px;
+  font-size: 0.8rem;
+  border-bottom: 1px solid var(--main-negative);
+  padding: 10px;
+  margin-bottom: 25px;
+}
+.info-dolar-api li {
+  list-style: none;
+}
+.moneda-titulo {
+  font-weight: 600;
+}
+.para-la-compra {
+  color: var(--violet);
+  font-weight: 600;
+}
+.para-la-venta {
+  color: var(--green);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* MODO OSCURO / CLARO --------------------------------- */
+.modo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  /* text-align: right; */
+}
+.modo-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 20px;
+}
+.modo-btn i {
+  color: var(--positive-fontcolor);
+}
+
+/* 425 PX ----------------------------------------------------------- */
+
+@media screen and (max-width: 425px) {
+  main {
+    width: 100%;
     padding: 10px;
-    margin-bottom: 25px;
-    
-}
-.info-dolar-api li{
-    list-style: none;
-}
-.moneda-titulo{
-    font-weight: 600;
-}
-.para-la-compra{
-    color: var(--violet);
-    font-weight: 600;
-
-}
-.para-la-venta{
-    color: var(--green);
-    font-weight: 600;
-    font-size: .9rem;
+    margin: 0px;
+  }
+  .head {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  /* RESUME ---- */
+  .resume-container {
+    width: 100%;
+  }
+  .resume-items {
+    display: flex;
+    align-items: center;
+  }
+  .resume-items h3 {
+    font-size: 0.9rem;
+  }
+  .resume-items h3 span {
+    font-weight: 400;
+  }
+  .saldo-item span {
+    font-size: 0.9rem;
+  }
+  /* TOOLBOX INPUT CATEGORIA ------- */
+  .btn-add-categoria .add-cat-toolbox {
+    width: 100px;
+    position: absolute;
+    top: 40px;
+    left: -50px;
+    z-index: 10;
+  }
 }
